@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block titulo %} Caminos del vino - Artículos {% endblock titulo %}
+
+{% block contenido %}
+<h1>Listado de artículos:</h1>
+{% if user.is_authenticated %}
+{% endif %}
+<br>
+<table class="table">
+  <tbody>
+    <tr>
+      <th>Título</th>
+      <td>Autor</td>
+      <td>Fecha</td>
+    </tr>
+    {% for articulo in object_list %}
+    <tr>
+      <td>{{ articulo.titulo }}</td>
+      <td>{{ articulo.autor }}</td>
+      <td>{{ articulo.fecha }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock contenido %}

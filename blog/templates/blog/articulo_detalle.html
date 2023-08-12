@@ -1,27 +1,18 @@
 {% extends "base.html" %}
 
-{% block titulo %} Artículos - Detalle {% endblock titulo %}
+{% block titulo %} Caminos del vino - Detalle {% endblock titulo %}
 
 {% block contenido %}
 
-<form method="post">
-<p>
- <strong>Título:</strong> {{object.titulo}}
-</p>
-<p>
- <strong>Subtítulo:</strong> {{object.subtitulo}}
-</p>
-<p>
- <strong>Cuerpo:</strong> {{object.cuerpo}}
-</p>
-<p>
- <strong>Autor:</strong> {{object.autor}}
-</p>
-<p>
- <strong>Fecha:</strong> {{object.fecha}}
-</p>
-</form>
-<br>
-<a href="{% url 'lista_articulos' %}"><i class="fa-solid fa-turn-down-left"></i></a>
+    <h1>{{object.titulo}}</h1>
+    <h2>{{object.subtitulo}}</h2>
+    <div>
+        {% if imagen.posts %} 
+        {% endif %}
+        <img height="512" src="{{object.imagen.url}}">
+    </div>
+    <div>
+        {{object.cuerpo}}
+    </div>
 
 {% endblock contenido %}

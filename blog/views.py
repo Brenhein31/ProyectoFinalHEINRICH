@@ -1,31 +1,29 @@
-from django.shortcuts import render, redirect
-from django.urls import reverse, reverse_lazy
+from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views.generic import *
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
-
 from blog.models import *
-from blog.forms import *
 
 class ArticuloListView(ListView):
     model = Articulo
-    template_name = "blog/lista_articulos.html"
+    template_name = "blog/articulo_lista.html"
 
 class ArticuloDetailView(DetailView):
     model = Articulo
-    success_url = reverse_lazy("lista_articulos")
+    success_url = reverse_lazy("ver_articulo")
 
-class ArticuloCreateView(CreateView):
+class ArticuloCreateView(LoginRequiredMixin, CreateView):
     model = Articulo
-    fields = ("titulo", "subtitulo", "cuerpo", "autor", "fecha", "imagen")
+    fields = "__all__"
     success_url = reverse_lazy("lista_articulos")
 
-class ArticuloUpdateView(UpdateView):
+class ArticuloUpdateView(LoginRequiredMixin, UpdateView):
     model = Articulo
-    fields = ("titulo", "subtitulo", "cuerpo", "autor", "fecha", "imagen")
+    fields = "__all__"
     success_url = reverse_lazy("lista_articulos")
 
-class ArticuloDeleteView(DeleteView):
+class ArticuloDeleteView(LoginRequiredMixin, DeleteView):
    model = Articulo
-   success_url = reverse_lazy('lista_articulos')
+   success_url = reverse_lazy("lista_articulos")
 

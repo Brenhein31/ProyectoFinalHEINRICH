@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 
-{% block titulo %} Confirmación {% endblock titulo %}
+{% block titulo %} Caminos del vino - Eliminar {% endblock titulo %}
 
 {% block contenido %}
 <form method="post">
  {% csrf_token %}
  {{ form.as_p }}
- <p>¿Estás seguro de que deseas eliminar el artículo?</p>
+ <p>¿Está seguro de que desea eliminar el artículo?</p>
  <input type="submit" value="Eliminar"/>
 </form>
 <br>

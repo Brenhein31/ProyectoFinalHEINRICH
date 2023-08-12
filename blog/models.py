@@ -6,5 +6,4 @@ class Articulo(models.Model):
     subtitulo = models.CharField(max_length=256)
     cuerpo = models.TextField(blank=True)
     autor = models.CharField(max_length=256)
-    fecha = models.DateField(null=True)
-    imagen = models.ImageField
+    fecha = models.DateField()
