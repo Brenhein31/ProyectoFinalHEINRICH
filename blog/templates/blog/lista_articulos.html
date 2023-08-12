@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block titulo %} Artículos {% endblock titulo %}
+
+{% block contenido %}
+<h1>Nuestros artículos:</h1>
+{% if user.is_authenticated %}
+<a href="{% url 'crear_articulo' %}"><i class="fa-solid fa-plus"></i></a>
+{% endif %}
+
+<br>
+<table class="table">
+  <tbody>
+    <tr>
+      <th>Título</th>
+      <th>Subtítulo</th>
+      <th>Cuerpo</th>
+      <td>Autor</td>
+      <td>Fecha</td>
+      <td>Imagen</td>
+    </tr>
+
+    {% for articulo in object_list %}
+    <tr>
+      <td>{{ articulo.titulo }}</td>
+      <td>{{ articulo.autor }}</td>
+      <td>
+        <a href="{% url 'ver_articulo' articulo.id %}"><i class="fa-solid fa-eye"></i></a>
+      </td>
+      {% if user.is_authenticated %}
+      <td>
+        <a href="{% url 'editar_articulo' articulo.id %}"><i class="fa-solid fa-pen"></i></a>
+      </td>
+      <td>
+        <a href="{% url 'eliminar_articulo' articulo.id %}"><i class="fa-solid fa-trash"></i></a>
+      {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+    
+  </tbody>
+</table>
+{% endblock contenido %}
