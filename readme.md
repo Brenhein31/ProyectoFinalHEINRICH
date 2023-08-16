@@ -26,6 +26,6 @@ pip install -r requirements.txt
 
 ## Superusuario de pruebas ya creado:
 '''
-+Superuser: admin
-+Password: Coderhouse23
++ Superuser: admin
++ Password: Coderhouse23
 '''
