@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block titulo %}
 Caminos del vino - Sobre mí
@@ -6,5 +7,15 @@ Caminos del vino - Sobre mí
 
 {% block contenido %}
 <h1>Sobre mí:</h1>
-<p>Mi nombre es Brenda Heinrich. Soy biotecnóloga y estudiante de Python. Este proyecto surge como trabajo integrador final para el curso de Python de Coderhouse. ¡Gracias por leerme!</p>
+<br>
+<img src="{% static 'images/about.jpg' %}" alt="sobre mi" width="100">
+<br><br>
+        <p> Mi nombre es Brenda Heinrich.
+            Soy biotecnóloga y estudiante de Python.
+            Este proyecto surge como trabajo integrador final
+            para el curso de Python de Coderhouse.
+            ¡Gracias por leerme!</p>
+<br>
+<a class="btn btn-success" href="https://www.linkedin.com/in/brenda-heinrich/" type="button">¡CONTACTAME!</a>
+<br><br>
 {% endblock contenido %}

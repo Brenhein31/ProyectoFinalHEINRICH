@@ -4,23 +4,21 @@
 
 {% block contenido %}
 <h1>Listado de artículos:</h1>
-{% if user.is_authenticated %}
-{% endif %}
 <br>
-<table class="table">
-  <tbody>
-    <tr>
-      <th>Título</th>
-      <td>Autor</td>
-      <td>Fecha</td>
-    </tr>
-    {% for articulo in object_list %}
-    <tr>
-      <td>{{ articulo.titulo }}</td>
-      <td>{{ articulo.autor }}</td>
-      <td>{{ articulo.fecha }}</td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
-{% endblock contenido %}
+{% if user.is_authenticated %}
+<a class="btn btn-success" href="{% url 'crear_articulo' %}" type="button">CREAR ARTÍCULO</a>
+{% endif %}
+<br><br>
+<ul>
+{% for articulo in object_list %}
+    <li>
+        {{ articulo.fecha }}: {{ articulo.titulo }} - {{ articulo.autor }}   
+        {% if user.is_authenticated and user == articulo.autor %}
+        <a class="btn btn-danger" href="{% url 'eliminar_articulo' articulo.id %}" type="button">ELIMINAR</a>
+        <a class="btn btn-primary" href="{% url 'editar_articulo' articulo.id %}" type="button">ACTUALIZAR</a>
+        {% endif %}
+        <a class="btn btn-primary" href="{% url 'ver_articulo' articulo.id %}" type="button">VER MÁS</a>
+    </li>
+{% endfor %}
+</ul>
+{% endblock %}

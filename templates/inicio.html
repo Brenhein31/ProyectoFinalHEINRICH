@@ -1,12 +1,11 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block titulo %}
 Caminos del vino - Principal
 {% endblock titulo %}
 
 {% block contenido%}
-
- <!-- Page header with logo and tagline-->
  <header class="py-5 bg-light border-bottom mb-4">
     <div class="container">
         <div class="text-center my-5">
@@ -15,5 +14,6 @@ Caminos del vino - Principal
         </div>
     </div>
 </header>
-
+<br>
+<img src="{% static 'images/inicio.jpg' %}" alt="inicio" width="1600" height="900">
 {% endblock contenido %}

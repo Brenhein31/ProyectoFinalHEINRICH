@@ -10,6 +10,7 @@ Caminos del vino - Iniciar sesión
 <form method="POST">
  {% csrf_token %}
  {{ form.as_p }}
- <input type="submit" value="ACCEDER"/>
+ <input type="submit" value="ACCEDER" class="btn btn-primary"/>
 </form>
+<br>
 {% endblock contenido %}

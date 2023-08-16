@@ -11,19 +11,22 @@ class ArticuloListView(ListView):
 
 class ArticuloDetailView(DetailView):
     model = Articulo
-    success_url = reverse_lazy("ver_articulo")
 
 class ArticuloCreateView(LoginRequiredMixin, CreateView):
     model = Articulo
-    fields = "__all__"
-    success_url = reverse_lazy("lista_articulos")
+    fields = ["titulo", "subtitulo", "cuerpo", "imagen"]
+    success_url = "/articulos/entradas/"
+
+    def form_valid(self, form):
+        form.instance.autor = self.request.user
+        return super().form_valid(form)
 
 class ArticuloUpdateView(LoginRequiredMixin, UpdateView):
     model = Articulo
-    fields = "__all__"
-    success_url = reverse_lazy("lista_articulos")
+    fields = ["titulo", "subtitulo", "cuerpo", "imagen"]
+    success_url = "/articulos/entradas/"
 
 class ArticuloDeleteView(LoginRequiredMixin, DeleteView):
    model = Articulo
-   success_url = reverse_lazy("lista_articulos")
+   success_url = "/articulos/entradas/"
 
