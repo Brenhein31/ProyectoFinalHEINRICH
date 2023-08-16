@@ -25,7 +25,12 @@ pip install -r requirements.txt
 + Acceder con user y password via: 127.0.0.1:8000/admin
 
 ## Superusuario de pruebas ya creado:
-'''
+
 + Superuser: admin
 + Password: Coderhouse23
+
+## Video de prueba:
+
+'''
+https://www.awesomescreenshot.com/video/19965137
 '''
